@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pengumuman;
+// use App\AttachPengumuman;
 
 class PengumumanController extends Controller
 {
@@ -30,15 +31,17 @@ class PengumumanController extends Controller
     public function store(Request $req){
         $this->val($req);
 
-        Pengumuman::create([
-            'subject' => $req->subject,
-            'tgl' => date('Y-m-d H:i:s'),
-            'pesan' => $req->pesan,
-            'stat' => 1,
-            'users_id' => auth()->user()->id
-        ]);
+        print_r($req->file[1]);
 
-        return redirect('/admin/pengumuman');
+        // Pengumuman::create([
+        //     'subject' => $req->subject,
+        //     'tgl' => date('Y-m-d H:i:s'),
+        //     'pesan' => $req->pesan,
+        //     'stat' => 1,
+        //     'users_id' => auth()->user()->id
+        // ]);
+
+        // return redirect('/admin/pengumuman');
     }
 
     public function update(Request $req){
